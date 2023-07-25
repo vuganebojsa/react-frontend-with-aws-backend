@@ -15,10 +15,15 @@ function Login(){
         if(email.trim() == '' || password.trim() == ''){
             setInfoValid(false);
             setErrorMessage("Molimo vas popunite oba polja.");
-        }else{
+        }else if(password.trim().length < passwordLength){
+            setInfoValid(false);
+            setErrorMessage("Lozinka mora imati barem 6 slova.");
+        }
+        else{
             setInfoValid(true);
             login(email, password);
         }
+
     }
     return (
     <div className="login talia-border">
@@ -43,7 +48,7 @@ function Login(){
                 <div className="col-12">
                     <div class="form-group form-field">
                         <label for="password">Lozinka</label>
-                        <input type="password" id="password" className="form-control text-center talia-input" placeholder="******" name="password" minLength={passwordLength}/>
+                        <input type="password" id="password" className="form-control text-center talia-input" placeholder="******" name="password"/>
             
                     </div>
                 </div>
