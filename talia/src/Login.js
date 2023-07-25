@@ -1,5 +1,13 @@
-
+import { useState } from "react";
 function Login(){
+    const [infoValid, setInfoValid] = useState(true);
+
+    const handleSubmit = (event) =>{
+        event.preventDefault();
+        const email = event.currentTarget.email.value;
+        const password = event.currentTarget.password.value;
+        alert(email +' ' + password);
+    }
     return (
     <div className="login talia-border">
         <div className="row text-center mx-2">
@@ -8,18 +16,18 @@ function Login(){
 
             </div>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className="row text-center">
                 <div className="col-12">
                     <div class="form-group form-field">
                         <label for="email">Email adresa</label>
-                        <input type="email" className="form-control text-center talia-input" name="email"  placeholder="mara@primer.com"/>
+                        <input type="email" id="email" className="form-control text-center talia-input" name="email"  placeholder="mara@primer.com"/>
                     </div>
                 </div>
                 <div className="col-12">
                     <div class="form-group form-field">
                         <label for="password">Lozinka</label>
-                        <input type="password" className="form-control text-center talia-input" placeholder="******" name="password"/>
+                        <input type="password" id="password" className="form-control text-center talia-input" placeholder="******" name="password"/>
             
                     </div>
                 </div>
