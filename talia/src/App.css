@@ -26,6 +26,13 @@
   width: 80%;
   margin: 10px auto; 
 }
+.error-message{
+  background-color: #f8ba64;
+  padding: 20px;
+
+  letter-spacing: 3px;
+
+}
 
 .talia-button{
     background-color: transparent;

@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 function Login(){
     const [infoValid, setInfoValid] = useState(true);
 
@@ -6,7 +7,11 @@ function Login(){
         event.preventDefault();
         const email = event.currentTarget.email.value;
         const password = event.currentTarget.password.value;
-        alert(email +' ' + password);
+        if(email.trim() == '' || password.trim() == ''){
+            setInfoValid(false);
+        }else{
+            setInfoValid(true);
+        }
     }
     return (
     <div className="login talia-border">
@@ -18,6 +23,10 @@ function Login(){
         </div>
         <form onSubmit={handleSubmit}>
             <div className="row text-center">
+               {!infoValid && <div className="col-12">
+                    <p className="error-message">Email adresa ili lozinka nisu ispravni. Pokusajte ponovo.</p>
+                </div>
+                }
                 <div className="col-12">
                     <div class="form-group form-field">
                         <label for="email">Email adresa</label>
