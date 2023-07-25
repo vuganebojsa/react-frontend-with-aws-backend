@@ -1,6 +1,63 @@
+*{
+  letter-spacing: 2px;
+  font-size: 20px;
+}
 .main-text-color{
   background: #9521CF;
   background: linear-gradient(to right, #9521CF 16%, #CF1512 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.talia-border{
+  border: 2px solid #87417a;
+
+}
+.talia-input:hover{
+  color: #9521CF;
+}
+.login{
+  padding: 20px;
+  width: 50%;
+  height: auto;
+  margin: 40px auto;
+}
+.form-field{
+  width: 80%;
+  margin: 10px auto; 
+}
+
+.talia-button{
+    background-color: transparent;
+    padding: 14px;
+    border-radius: 10px;
+    background: #9521CF;
+    font-weight: bold;
+    background: linear-gradient(to right, #9521CF 16%, #CF1512 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.talia-button:hover{
+  color: white;
+  -webkit-background-clip: none;
+  -webkit-text-fill-color: white;
+
+  background: rgb(149,33,207);
+  background: linear-gradient(198deg, rgba(149,33,207,1) 16%, rgba(207,21,18,1) 100%);
+
+}
+
+@media screen and (max-width:500px) {
+  .login{
+    width: 100%;
+
+  }
+}
+
+@media screen and (max-width:800px) {
+  .login{
+    width: 90%;
+
+  }
 }
