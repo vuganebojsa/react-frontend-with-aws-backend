@@ -1,8 +1,12 @@
 import { useState } from "react";
 
+function login(email, password){
+    const user = {}
+}
+
 function Login(){
     const [infoValid, setInfoValid] = useState(true);
-    const [passwordLength, setPasswordLength] = useState(5);
+    const [passwordLength, setPasswordLength] = useState(6);
     const [errorMessage, setErrorMessage] = useState("");
     const handleSubmit = (event) =>{
         event.preventDefault();
@@ -13,6 +17,7 @@ function Login(){
             setErrorMessage("Molimo vas popunite oba polja.");
         }else{
             setInfoValid(true);
+            login(email, password);
         }
     }
     return (

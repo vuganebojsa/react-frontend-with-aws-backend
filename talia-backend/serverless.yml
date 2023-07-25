@@ -36,6 +36,10 @@ functions:
 
 resources:
   Resources:
+    ApiGatewayRestApi:
+      Type: AWS::ApiGateway::RestApi
+      Properties:
+        Name: MyApiGateway
     ApiGatewayAuthorizer:
       Type: AWS::ApiGateway::Authorizer
       Properties:
@@ -45,9 +49,9 @@ resources:
         RestApiId:
           Ref: ApiGatewayRestApi
         ProviderARNs:
-          -Fn:GetAtt:
-            - UserPool
-            - Arn
+          - Fn::GetAtt: [UserPool, Arn]
+
+    
     UserPool:
       Type: AWS::Cognito::UserPool
       Properties:
@@ -58,7 +62,7 @@ resources:
             Mutable: true
         Policies:
           PasswordPolicy:
-            MinimumLength: 5
+            MinimumLength: 6
         AutoVerifiedAttributes: ["email"]
     UserClient:
       Type: AWS::Cognito::UserPoolClient
@@ -66,7 +70,7 @@ resources:
         ClientName: user-pool-talia
         GenerateSecret: false
         UserPoolId: { Ref: UserPool }
-        AccesTokenValidity: 5
+        AccessTokenValidity: 5
         IdTokenValidity: 5
         ExplicitAuthFlows:
           - ADMIN_NO_SRP_AUTH
