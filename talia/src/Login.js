@@ -1,18 +1,53 @@
 import { useState } from "react";
+import userPool from "./awsInfo";
+import {CognitoUser, AuthenticationDetails} from "amazon-cognito-identity-js";
 
-function login(email, password){
-    const user = {}
+function login(email, password, setInfoValid, setErrorMessage){
+    const user = new CognitoUser({
+        Username: email,
+        Pool: userPool
+    });
+    const authDetails = new AuthenticationDetails({
+        Username: email,
+        Password: password
+    });
+
+    user.authenticateUser(authDetails, {
+        onSuccess : (data) =>{
+            localStorage.setItem('accessToken', data.accessToken.jwtToken);
+            localStorage.setItem('idToken', data.idToken.jwtToken);
+            localStorage.setItem('refreshToken', data.refreshToken.token);
+        },
+        onFailure: (err) =>{
+            console.error("failure ", err);
+            setInfoValid(false);
+            setErrorMessage("Korisnicko ime ili lozinka nisu ispravni. Pokusajte ponovo.");
+        },
+        newPasswordRequired : (data) =>{
+            user.completeNewPasswordChallenge(password, {}, {
+                onSuccess: (data) => {
+                    console.log("password change success", data);
+                },
+                onFailure: (err) => {
+                    console.error("password change failure", err);
+                },
+            });
+        }
+    });
+
+
 }
 
 function Login(){
     const [infoValid, setInfoValid] = useState(true);
     const [passwordLength, setPasswordLength] = useState(6);
     const [errorMessage, setErrorMessage] = useState("");
+
     const handleSubmit = (event) =>{
         event.preventDefault();
         const email = event.currentTarget.email.value;
         const password = event.currentTarget.password.value;
-        if(email.trim() == '' || password.trim() == ''){
+        if(email.trim() === '' || password.trim() === ''){
             setInfoValid(false);
             setErrorMessage("Molimo vas popunite oba polja.");
         }else if(password.trim().length < passwordLength){
@@ -21,7 +56,7 @@ function Login(){
         }
         else{
             setInfoValid(true);
-            login(email, password);
+            login(email, password, setInfoValid, setErrorMessage);
         }
 
     }
@@ -40,21 +75,21 @@ function Login(){
                 </div>
                 }
                 <div className="col-12">
-                    <div class="form-group form-field">
-                        <label for="email">Email adresa</label>
-                        <input type="email" id="email" className="form-control text-center talia-input" name="email"  placeholder="mara@primer.com"/>
+                    <div className="form-group form-field">
+                        <label htmlFor="email">Korisnicko ime</label>
+                        <input type="text" id="email" className="form-control text-center talia-input" name="email"  placeholder="taliasalon"/>
                     </div>
                 </div>
                 <div className="col-12">
-                    <div class="form-group form-field">
-                        <label for="password">Lozinka</label>
+                    <div className="form-group form-field">
+                        <label htmlFor="password">Lozinka</label>
                         <input type="password" id="password" className="form-control text-center talia-input" placeholder="******" name="password"/>
             
                     </div>
                 </div>
 
                 <div className="col-12">
-                    <button type="submit" class="talia-button my-3 talia-border">Ulogujte se</button>
+                    <button type="submit" className="talia-button my-3 talia-border">Ulogujte se</button>
 
 
                 </div>
