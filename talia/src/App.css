@@ -4,7 +4,11 @@
     font-family: Georgia-serif, Verdana, sans-serif;
 
 }
-
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
 ul li a.active{
     background: #9521CF;
     background: linear-gradient(to right, #350e44 16%, #9e0f0c 100%);
