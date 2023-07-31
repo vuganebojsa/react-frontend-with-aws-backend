@@ -61,7 +61,12 @@ function Login(){
 
     }
     return (
+        <div className="text-center m-5">
+    <h1 className="main-text-color talia-title">Talija Frizerski Salon</h1>
+
     <div className="login talia-border">
+        <div className="row text-center m-2">
+        </div>
         <div className="row text-center mx-2">
             <div className="col-12">
             <h3 className="main-text-color p-3">Ulogujte se</h3>
@@ -96,7 +101,7 @@ function Login(){
             </div>
         </form>
     </div>
-    );
+    </div>);
 }
 
 export default Login;

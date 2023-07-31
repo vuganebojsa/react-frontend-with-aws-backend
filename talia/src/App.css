@@ -9,6 +9,9 @@
   -webkit-text-fill-color: transparent;
 }
 
+.talia-title{
+    font-weight: bold;
+}
 .talia-border{
   border: 2px solid #87417a;
 
