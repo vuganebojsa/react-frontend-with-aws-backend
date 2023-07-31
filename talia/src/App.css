@@ -1,7 +1,19 @@
 *{
   letter-spacing: 2px;
   font-size: 20px;
+    font-family: Georgia-serif, Verdana, sans-serif;
+
 }
+
+ul li a.active{
+    background: #9521CF;
+    background: linear-gradient(to right, #350e44 16%, #9e0f0c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+
 .main-text-color{
   background: #9521CF;
   background: linear-gradient(to right, #9521CF 16%, #CF1512 100%);

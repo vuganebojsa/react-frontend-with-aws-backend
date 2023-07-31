@@ -1,8 +1,9 @@
 import { useState } from "react";
 import userPool from "./awsInfo";
 import {CognitoUser, AuthenticationDetails} from "amazon-cognito-identity-js";
+import { useNavigate } from 'react-router-dom';
 
-function login(email, password, setInfoValid, setErrorMessage){
+function login(email, password, setInfoValid, setErrorMessage, navigate){
     const user = new CognitoUser({
         Username: email,
         Pool: userPool
@@ -17,6 +18,7 @@ function login(email, password, setInfoValid, setErrorMessage){
             localStorage.setItem('accessToken', data.accessToken.jwtToken);
             localStorage.setItem('idToken', data.idToken.jwtToken);
             localStorage.setItem('refreshToken', data.refreshToken.token);
+            navigate('/');
         },
         onFailure: (err) =>{
             console.error("failure ", err);
@@ -39,6 +41,7 @@ function login(email, password, setInfoValid, setErrorMessage){
 }
 
 function Login(){
+    const navigate = useNavigate();
     const [infoValid, setInfoValid] = useState(true);
     const [passwordLength, setPasswordLength] = useState(6);
     const [errorMessage, setErrorMessage] = useState("");
@@ -56,13 +59,12 @@ function Login(){
         }
         else{
             setInfoValid(true);
-            login(email, password, setInfoValid, setErrorMessage);
+            login(email, password, setInfoValid, setErrorMessage, navigate);
         }
 
     }
     return (
         <div className="text-center m-5">
-    <h1 className="main-text-color talia-title">Talija Frizerski Salon</h1>
 
     <div className="login talia-border">
         <div className="row text-center m-2">
@@ -94,7 +96,7 @@ function Login(){
                 </div>
 
                 <div className="col-12">
-                    <button type="submit" className="talia-button my-3 talia-border">Ulogujte se</button>
+                    <button type="submit" className="talia-button my-3 talia-border">Potvrdite</button>
 
 
                 </div>
