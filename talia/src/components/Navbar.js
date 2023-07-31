@@ -12,7 +12,13 @@ function Navbar(){
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <NavLink  className="nav-link" to="/">Pocetna</NavLink >
+                    <NavLink  className="nav-link" to="/">Početna</NavLink >
+                </li>
+                <li className="nav-item">
+                    <NavLink  className="nav-link" to="/login">Galerija</NavLink >
+                </li>
+                <li className="nav-item">
+                    <NavLink  className="nav-link" to="/login">Kontakt</NavLink >
                 </li>
                 <li className="nav-item">
                     <NavLink  className="nav-link" to="/login">Ulogujte se</NavLink >

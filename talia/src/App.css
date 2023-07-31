@@ -9,6 +9,10 @@
     top: 0;
     z-index: 100;
 }
+
+.footer-bg{
+    background-color: rgba(196, 192, 192, 0.4);
+}
 ul li a.active{
     background: #9521CF;
     background: linear-gradient(to right, #350e44 16%, #9e0f0c 100%);
