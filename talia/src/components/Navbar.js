@@ -1,4 +1,4 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 function Navbar(){
@@ -15,10 +15,16 @@ function Navbar(){
                     <NavLink  className="nav-link" to="/">Početna</NavLink >
                 </li>
                 <li className="nav-item">
-                    <NavLink  className="nav-link" to="/login">Galerija</NavLink >
+                    <NavLink  className="nav-link" to="/gallery">Galerija</NavLink >
                 </li>
                 <li className="nav-item">
-                    <NavLink  className="nav-link" to="/login">Kontakt</NavLink >
+                    <NavLink  className="nav-link" to="/services">Usluge</NavLink >
+                </li>
+                <li className="nav-item">
+                    <NavLink  className="nav-link" to="/pricing">Cenovnik</NavLink >
+                </li>
+                <li className="nav-item">
+                    <NavLink  className="nav-link" to="/contact">Kontakt</NavLink >
                 </li>
                 <li className="nav-item">
                     <NavLink  className="nav-link" to="/login">Ulogujte se</NavLink >

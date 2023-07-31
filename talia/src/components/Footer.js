@@ -1,4 +1,7 @@
 import { SocialIcon } from 'react-social-icons';
+import { NavLink } from 'react-router-dom';
+import { faEnvelope, faPhone, faMapPin } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 function Footer(){
@@ -25,59 +28,57 @@ function Footer(){
                     <div className="row mt-3">
                         <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                             <h6 className="text-uppercase fw-bold mb-4">
-                                <i className="fas fa-gem me-3"></i>Company name
+                                <i className="fas fa-gem me-3"></i>Naziv Kompanije
                             </h6>
-                            <p>
-                                Here you can use rows and columns to organize your footer content. Lorem ipsum
-                                dolor sit amet, consectetur adipisicing elit.
+                            <p className="main-text-color">
+                                Talija Frizerski Salon
                             </p>
                         </div>
 
                         <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                             <h6 className="text-uppercase fw-bold mb-4">
-                                Products
+                                Usluge
                             </h6>
                             <p>
-                                <a href="#!" className="text-reset">Angular</a>
+                                <span className="text-reset">Muško šišanje</span>
                             </p>
                             <p>
-                                <a href="#!" className="text-reset">React</a>
+                                <span className="text-reset">Žensko šišanje</span>
                             </p>
                             <p>
-                                <a href="#!" className="text-reset">Vue</a>
+                                <span className="text-reset">Svečane frizure</span>
                             </p>
                             <p>
-                                <a href="#!" className="text-reset">Laravel</a>
+                                <span className="text-reset">Farbanje, Balejaž...</span>
                             </p>
                         </div>
 
-                        <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 footer-links">
                             <h6 className="text-uppercase fw-bold mb-4">
-                                Useful links
+                                Korisni Linkovi
                             </h6>
                             <p>
-                                <a href="#!" className="text-reset">Pricing</a>
+                                <NavLink  className="nav-link" to="/gallery">Galerija</NavLink >
                             </p>
                             <p>
-                                <a href="#!" className="text-reset">Settings</a>
+                                <NavLink  className="nav-link" to="/pricing">Cenovnik</NavLink >
                             </p>
                             <p>
-                                <a href="#!" className="text-reset">Orders</a>
+                                <NavLink  className="nav-link" to="/pricing">Usluge</NavLink >
                             </p>
                             <p>
-                                <a href="#" className="text-reset">Help</a>
+                                <NavLink  className="nav-link" to="/contact">Kontakt</NavLink >
                             </p>
                         </div>
 
                         <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                            <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-                            <p><i className="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                            <h6 className="text-uppercase fw-bold mb-4">Kontakt</h6>
                             <p>
-                                <i className="fas fa-envelope me-3"></i>
-                                info@example.com
+                            <a className="main-text-color" target="_blank" href="https://www.google.com/maps/place/TALIA+TUNING/@44.9980673,19.5584464,18z/data=!4m6!3m5!1s0x475ba36fee2e7c41:0x5c00105c1b6a7540!8m2!3d44.9976062!4d19.5578631!16s%2Fg%2F11_y0xjs2?entry=ttu"><FontAwesomeIcon icon={faMapPin}></FontAwesomeIcon> Cerska 34, Laćarak 22221, Srbija</a>
                             </p>
-                            <p><i className="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                            <p><i className="fas fa-print me-3"></i> + 01 234 567 89</p>
+                            <p>
+                                <a className="main-text-color" href="tel:+381644326077"><FontAwesomeIcon icon={faPhone}></FontAwesomeIcon> +381 64 432 6077</a>
+                            </p>
                         </div>
                     </div>
                 </div>
